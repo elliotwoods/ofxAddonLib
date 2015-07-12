@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <PropertyGroup>
+      <TargetName>$(ProjectName)d</TargetName>
+    </PropertyGroup>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <PropertyGroup>
+      <TargetName>$(ProjectName)</TargetName>
+    </PropertyGroup>
+  </ItemDefinitionGroup>
+  <PropertyGroup>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <OutDir>$(ProjectDir)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_$(ConfigurationName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ClCompile>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies></AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+  <PropertyGroup Label="Globals">
+    <RootNamespace>$(ProjectName)</RootNamespace>
+  </PropertyGroup>
+</Project>
