@@ -27,6 +27,7 @@
     </ClCompile>
     <ClCompile>
       <MinimalRebuild>false</MinimalRebuild>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Lib>
       <AdditionalDependencies></AdditionalDependencies>
