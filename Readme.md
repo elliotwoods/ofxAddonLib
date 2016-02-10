@@ -31,6 +31,16 @@ needs to be changed to
 Often you need to change this 4 times in the file (`Debug|x64`, `Release|x64`, `Debug|Win32`, `Release|Win32`)
 
 
+also...
+```
+    <ProjectReference Include="..\ofxSquashLib\ofxSquashLib.vcxproj">
+```
+needs to be changed to
+```
+    <ProjectReference Include="..\..\..\addons\ofxSquashLib\ofxSquashLib.vcxproj">
+```
+
+
 # Notes
 
 This property sheet should be above the openframeworksDebug.props / openframeworksRelease.props (we want to cancel out the Post-Build Event to xcopy the dll's into the Target App folder, and above means evaluated later).
