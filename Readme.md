@@ -26,7 +26,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ofxSquashLib", "..\..\..\ad
 ```
 needs to be changed to
 ```
-    <Import Project="..\..\..\addons\ofxSquashLib\ofxSquash.props" />
+    <Import Project="..\..\..\addons\ofxSquash\ofxSquashLib\ofxSquash.props" />
 ```
 Often you need to change this 4 times in the file (`Debug|x64`, `Release|x64`, `Debug|Win32`, `Release|Win32`)
 
@@ -37,7 +37,7 @@ also...
 ```
 needs to be changed to
 ```
-    <ProjectReference Include="..\..\..\addons\ofxSquashLib\ofxSquashLib.vcxproj">
+    <ProjectReference Include="..\..\..\addons\ofxSquash\ofxSquashLib\ofxSquashLib.vcxproj">
 ```
 
 
