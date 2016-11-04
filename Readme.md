@@ -13,9 +13,9 @@ This has a number of advantages:
 
 # How to use an addon which uses ofxAddonLib pattern
 
-1. Add the ofx_AddonName_.vcxproj to your solution
-2. In `Property Manager` (open it from `View -> Other Windows -> Property Manager`), right click on your project to select `Add Existing Property Sheet...` and select the `ofx_AddonName_/ofx_AddonName_Lib/ofx_AddonName_.props` file
-3. Right click on your project (e.g. 'mySketch') and select 'Add Reference...', and add a reference to `ofx_AddonName_Lib`.
+1. Add the ofx???.vcxproj to your solution
+2. In `Property Manager` (open it from `View -> Other Windows -> Property Manager`), right click on your project to select `Add Existing Property Sheet...` and select the `ofx???/ofx???Lib/ofx_AddonName_.props` file
+3. Right click on your project (e.g. 'mySketch') and select 'Add Reference...', and add a reference to `ofx???Lib`.
 
 # Caveats
 
