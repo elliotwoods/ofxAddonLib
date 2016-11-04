@@ -11,6 +11,12 @@ This has a number of advantages:
 2. Build times can be quicker if you have multiple apps using the same addons
 3. Addon developers can add complex build settings to their addons
 
+# How to use an addon which uses ofxAddonLib pattern
+
+1. Add the ofx_AddonName_.vcxproj to your solution
+2. In `Property Manager` (open it from `View -> Other Windows -> Property Manager`), right click on your project to select `Add Existing Property Sheet...` and select the `ofx_AddonName_/ofx_AddonName_Lib/ofx_AddonName_.props` file
+3. Right click on your project (e.g. 'mySketch') and select 'Add Reference...', and add a reference to `ofx_AddonName_Lib`.
+
 # Caveats
 
 ## Moving applications out of addon example folders
