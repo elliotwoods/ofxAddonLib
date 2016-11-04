@@ -1,9 +1,15 @@
 # Introduction
 
-Settings for addons following the `ofx?????Lib` pattern when using the addon within Visual Studio. This mostly sets things like:
+ofxAddonLib introduces a new pattern for working with addons in Visual Studio. It involves:
 
-* Don't needlessly copy oF's DLL's to the addon folder.
-* Make sure to build Release and Debug libs with different names, and in different locations (to avoid needing to Rebuild Solution).
+1. Putting all project settings required to use the addon into a `.props` file which Visual Studio can process automatically
+2. Keeping all the addon source and header files in a seperate project in your solution
+
+This has a number of advantages:
+
+1. If an addon changes, you don't need to recreate any projects which use it
+2. Build times can be quicker if you have multiple apps using the same addons
+3. Addon developers can add complex build settings to their addons
 
 # Caveats
 
