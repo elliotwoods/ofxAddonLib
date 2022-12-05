@@ -2,22 +2,49 @@
 
 ofxAddonLib introduces a new pattern for working with addons in Visual Studio. It involves:
 
-1. Putting all project settings required to use the addon into a `.props` file which Visual Studio can process automatically
-2. Keeping all the addon source and header files in a seperate project in your solution
+1. The addon has a a `.vcxproj` file which contains all the `cpp` and `h` files. This project can then be included in your solution like `openFrameworks` is.
+2. The addon may also have a `.props` file which can be added to your project to apply project settings
 
 This has a number of advantages:
 
-1. If an addon changes, you don't need to recreate any projects which use it
-2. Build times can be quicker if you have multiple apps using the same addons
-3. Addon developers can add complex build settings to their addons
+1. If an addon changes, you don't need to recreate any projects which reference it
+2. Build times can be quicker if you have multiple apps using the same addons as you don't need to rebuild the addon for each project (you're simply linking it).
+3. Addon developers can add complex build settings to their addons which might not be supported by projectGenerator
 
-# How to use an addon which uses ofxAddonLib pattern
+Disadvantages:
 
-1. Add the `ofx???.vcxproj` to your solution (`ofx???` = the name of your addon)
-2. In `Property Manager` (open it from `View -> Other Windows -> Property Manager`), right click on your project to select `Add Existing Property Sheet...` and select the `ofx???/ofx???Lib/ofx_AddonName_.props` file
-3. Right click on your project (e.g. 'mySketch') and select 'Add Reference...', and add a reference to `ofx???Lib`.
+1. ofxAddonLib pattern is not supported by projectGenerator, so you'll have to add the addons manually
+2. Only supported by Visual Studio
 
-# Caveats
+# What does this look like?
+
+In the Solution Explorer, you have one or more addons as seperate projects:
+
+![Solution](screenshots/solution.png)
+
+Those addons can contain all their own files. If the addon changes, then it will be automatically updated across all of the solutions which include that addon.
+
+![ofxCvGui](screenshots/ofxCvGui.png)
+
+In the `Property Manager` (note : this isn't the Solution Explorer) we have a property sheet for each addon. These apply things like include paths, libraries and other project settings.
+
+![Property Manager](screenshots/property_manager.png)
+
+# How to use an addon which uses ofxAddonLib pattern
+
+1. In the `Solution Explorer`, right click on your solution and select `Add>Existing Project...` and choose the addon's project (e.g. `addons\ofxCvGui\ofxCvGuiLib\ofxCvGui.vcxproj`)
+2. In the `Property Manager` (open it from `View>Other Windows>Property Manager`), right click on your project to select `Add Existing Property Sheet...` and select the props file, e,g, `addons\ofxCvGui\ofxCvGuiLib\ofxCvGui.props`
+3. In the `Solution Explorer`, right click on your project and select `Add Reference...`, and add a reference to the addon project, e.g. `ofxCvGui`.
+
+# What is this repo?
+
+1. Some shared files used by addons that use the ofxAddonLib pattern
+2. These instructions
+
+Not all addons that use the ofxAddonLib pattern require this addon, especially where we want to make it easy for users (e.g. ofxKinectForWindows2). Annoyingly, if an addon requires this addon to exist and it isn't installed, the error given by VS isn't very clear (sorry about that!). Ideally we could put most of this into openFrameworks proper.
+
+
+# Tricky caveats
 
 ## Moving applications out of addon example folders
 
